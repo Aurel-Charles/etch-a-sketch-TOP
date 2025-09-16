@@ -6,7 +6,7 @@ const div = document.createElement('div')
 
 
 function createGridOfDiv() {
-    for (let i = 0; i <= 16; i++) {
+    for (let i = 0; i <= 255; i++) {
         const div = document.createElement('div')
         div.className = 'square'
         div.id = `square-${i}`
