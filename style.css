@@ -1,8 +1,16 @@
 body{
     background-color: rgb(37, 41, 54);
+    color: antiquewhite;
 }
 
 h1{
-    color: antiquewhite;
     text-align: center;
+}
+
+
+
+.square{
+    height: 30px;
+    width: 30px;
+    background-color: white;
 }
