@@ -38,3 +38,8 @@ h1{
     background-color: rgb(192, 34, 34);
     border: solid 1px black;
 }
+
+#btnSquarePerSide{
+    padding: 10px;
+    margin: 10px;
+}

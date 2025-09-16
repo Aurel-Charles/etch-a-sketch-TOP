@@ -21,19 +21,28 @@ let num = 16
 createGridOfDiv(num)
 
 //// hover effect
-
-const squares = document.querySelectorAll('.square')
-for (const square of squares) {
-    square.addEventListener('mouseenter', ()=> {
-        square.classList.remove('square-uncolored')
-        square.classList.add('square-colored')
-        console.log('hovered');
-    })
+function hover() {
+    
+    const squares = document.querySelectorAll('.square')
+    for (const square of squares) {
+        square.addEventListener('mouseenter', ()=> {
+            square.classList.remove('square-uncolored')
+            square.classList.add('square-colored')
+            console.log('hovered');
+        })
+    }
 }
+hover()
 
 
+/// button handling
+const btnSquarePerSide = document.querySelector('#btnSquarePerSide')
+btnSquarePerSide.addEventListener('click', ()=> {
+    let newNum = prompt("How Many square per sid would you like?(<100)");
+    newNum
+    container.replaceChildren() // empty the container
+    createGridOfDiv(newNum)
+    hover()
+})
 
-let numSquarePerSide = 20
-
-const containerTest = document.querySelector('#container-test')
-
+    
