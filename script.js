@@ -23,9 +23,9 @@ createGridOfDiv()
 const squares = document.querySelectorAll('.square')
 for (const square of squares) {
     square.addEventListener('mouseenter', ()=> {
-        square.className = 'square-colored'
+        square.classList.remove('square-uncolored')
+        square.classList.add('square-colored')
         console.log('hovered');
     })
-
 }
 
