@@ -20,7 +20,7 @@ function createGridOfDiv(num) {
 let num = 16
 createGridOfDiv(num)
 
-//// hover effect
+//// hover effect (ONE COLOR)
 function hover() {
     
     const squares = document.querySelectorAll('.square')
@@ -32,7 +32,8 @@ function hover() {
         })
     }
 }
-hover()
+
+// hover()
 
 
 /// button handling
@@ -47,7 +48,26 @@ btnSquarePerSide.addEventListener('click', ()=> {
     container.replaceChildren() // empty the container
     createGridOfDiv(newNum)
     hover()
-    
 })
 
     
+//// hover effect (RANDOM COLOR)
+
+function hoverRandom() {
+    
+    const squares = document.querySelectorAll('.square')
+    for (const square of squares) {
+        let randomR =  Math.floor(Math.random()*256)
+        let randomG =  Math.floor(Math.random()*256)
+        let randomB =  Math.floor(Math.random()*256)
+        let randomRGB = `rgb(${randomR},${randomG},${randomB})`
+        square.addEventListener('mouseenter', ()=> {
+            square.classList.remove('square-uncolored')
+            square.classList.add('square-colored')
+            square.style.backgroundColor = randomRGB
+            console.log('hovered');
+        })
+    }
+}
+
+hoverRandom()
