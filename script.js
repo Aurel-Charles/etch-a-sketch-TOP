@@ -38,11 +38,16 @@ hover()
 /// button handling
 const btnSquarePerSide = document.querySelector('#btnSquarePerSide')
 btnSquarePerSide.addEventListener('click', ()=> {
-    let newNum = prompt("How Many square per sid would you like?(<100)");
+    let newNum = prompt("How Many square per sid would you like? (between 1-100)");
+    while (newNum < 1 || newNum > 100) {
+        newNum = prompt('You mus choosed a number between 1 and 100')
+    }
     newNum
+    console.log(newNum);
     container.replaceChildren() // empty the container
     createGridOfDiv(newNum)
     hover()
+    
 })
 
     
