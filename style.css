@@ -19,8 +19,8 @@ h1{
 
 #container{
     justify-self: center;
-    width: 480px;
-    height: 480px;
+    width: 600px;
+    height: 600;
     display: flex;
     flex-wrap: wrap;
     background-color: white;
@@ -43,4 +43,11 @@ h1{
 #btnSquarePerSide{
     padding: 10px;
     margin: 10px;
+}   
+
+section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5%;
 }

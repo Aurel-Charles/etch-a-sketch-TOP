@@ -4,7 +4,7 @@ const container = document.querySelector('#container')
 const div = document.createElement('div')
 
 function createGridOfDiv(num) {
-    let newSquareWidth = (480 / num)
+    let newSquareWidth = (600 / num)
     for (let i = 1; i <= (num*num); i++) {
         const div = document.createElement('div')
         div.setAttribute("style", `width: ${newSquareWidth}px; height: ${newSquareWidth}px;`)
@@ -27,6 +27,7 @@ function hover() {
     for (const square of squares) {
         square.addEventListener('mouseenter', ()=> {
             square.classList.remove('square-uncolored')
+            // square.style.color = getColor()
             square.classList.add('square-colored')
             console.log('hovered');
         })
@@ -47,7 +48,7 @@ btnSquarePerSide.addEventListener('click', ()=> {
     console.log(newNum);
     container.replaceChildren() // empty the container
     createGridOfDiv(newNum)
-    hover()
+    hoverRandom()
 })
 
     
@@ -57,20 +58,36 @@ function hoverRandom() {
     
     const squares = document.querySelectorAll('.square')
     for (const square of squares) {
-        let randomR =  Math.floor(Math.random()*256)
-        let randomG =  Math.floor(Math.random()*256)
-        let randomB =  Math.floor(Math.random()*256)
-        let alphpa = 0
+        let randomG =  Math.floor(Math.random()*256)//
+        let randomR =  Math.floor(Math.random()*256)//  RGBA 
+        let randomB =  Math.floor(Math.random()*256)//  Randomizer
+        let alphpa = 0                              //
         square.addEventListener('mouseenter', ()=> {
             alphpa += 10
             let randomRGBA = `rgba(${randomR},${randomG},${randomB},${alphpa}%)`
             square.classList.remove('square-uncolored')
             square.classList.add('square-colored')
             square.style.backgroundColor = randomRGBA
-            console.log(`square color: ${randomRGBA}`);
-            
         })
     }
 }
 
-hoverRandom()
+
+////
+
+
+// hoverRandom()
+hover()
+
+function getColor() {
+    let color = '#000000'
+    const colorPicker = document.querySelector('#color')
+    colorPicker.addEventListener('input' , (e)=> {
+        color = e.target.value
+    })
+    return color
+    
+}
+
+
+
