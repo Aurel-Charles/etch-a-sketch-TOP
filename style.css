@@ -23,19 +23,20 @@ h1{
     height: 480px;
     display: flex;
     flex-wrap: wrap;
+    background-color: white;
 }
 
 .square{
     color: black;
     flex: auto;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     border: solid 1px black;
 }
 
 .square-colored{
     color: black;
     flex: auto;
-    background-color: rgb(192, 34, 34);
+    background-color: rgba(12, 34, 84, 100%);
     border: solid 1px black;
 }
 

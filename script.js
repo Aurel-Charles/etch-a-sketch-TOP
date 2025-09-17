@@ -60,12 +60,15 @@ function hoverRandom() {
         let randomR =  Math.floor(Math.random()*256)
         let randomG =  Math.floor(Math.random()*256)
         let randomB =  Math.floor(Math.random()*256)
-        let randomRGB = `rgb(${randomR},${randomG},${randomB})`
+        let alphpa = 0
         square.addEventListener('mouseenter', ()=> {
+            alphpa += 10
+            let randomRGBA = `rgba(${randomR},${randomG},${randomB},${alphpa}%)`
             square.classList.remove('square-uncolored')
             square.classList.add('square-colored')
-            square.style.backgroundColor = randomRGB
-            console.log('hovered');
+            square.style.backgroundColor = randomRGBA
+            console.log(`square color: ${randomRGBA}`);
+            
         })
     }
 }
