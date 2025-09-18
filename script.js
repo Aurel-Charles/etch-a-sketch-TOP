@@ -20,42 +20,39 @@ function createGridOfDiv(num) {
 let num = 16
 createGridOfDiv(num)
 
+
+///// color setup
+let currentColor = '#000000'
+const colorPicker = document.querySelector('#color')
+colorPicker.addEventListener('input', (e) => {
+    currentColor = e.target.value
+    console.log(currentColor);
+    
+})
+
+function getColor() {
+    return currentColor
+}
+
+
+
+
 //// hover effect (ONE COLOR)
 function hover() {
-    
     const squares = document.querySelectorAll('.square')
     for (const square of squares) {
         square.addEventListener('mouseenter', ()=> {
             square.classList.remove('square-uncolored')
-            // square.style.color = getColor()
             square.classList.add('square-colored')
             console.log('hovered');
+            square.style.backgroundColor = getColor()
         })
     }
 }
 
-// hover()
-
-
-/// button handling
-const btnSquarePerSide = document.querySelector('#btnSquarePerSide')
-btnSquarePerSide.addEventListener('click', ()=> {
-    let newNum = prompt("How Many square per sid would you like? (between 1-100)");
-    while (newNum < 1 || newNum > 100) {
-        newNum = prompt('You mus choosed a number between 1 and 100')
-    }
-    newNum
-    console.log(newNum);
-    container.replaceChildren() // empty the container
-    createGridOfDiv(newNum)
-    hoverRandom()
-})
-
-    
 //// hover effect (RANDOM COLOR)
 
-function hoverRandom() {
-    
+function hoverRandom() {    
     const squares = document.querySelectorAll('.square')
     for (const square of squares) {
         let randomG =  Math.floor(Math.random()*256)//
@@ -72,22 +69,50 @@ function hoverRandom() {
     }
 }
 
+/// button handling
+const btnSquarePerSide = document.querySelector('#btnSquarePerSide')
+btnSquarePerSide.addEventListener('click', ()=> {
+    let newNum = prompt("How Many square per sid would you like? (between 1-100)");
+    if (newNum === null) {
+        console.log('canceled action');
+        return
+    }
+    newNum = parseInt(newNum)
+    while (isNaN(newNum) || newNum < 1 || newNum > 100) {
+        newNum = prompt('You mus choosed a number between 1 and 100')
+    }
+    newNum
+    console.log(newNum);
+    container.replaceChildren() // empty the container
+    createGridOfDiv(newNum)
+    const checkRandomcolor = document.querySelector('#checkRandomColor');    // Reactivate the hover depending on the mode
+    if (checkRandomcolor.checked) {
+        hoverRandom();
+    } else {
+        hover();
+    }
+})
 
-////
+//// mode 
 
-
-// hoverRandom()
-hover()
-
-function getColor() {
-    let color = '#000000'
-    const colorPicker = document.querySelector('#color')
-    colorPicker.addEventListener('input' , (e)=> {
-        color = e.target.value
-    })
-    return color
-    
+function playMode() {
+    const checkRandomcolor = document.querySelector('#checkRandomColor')
+    checkRandomcolor.addEventListener('change', (e)=>  {
+        let mode = e.target.checked;
+        if (mode) {
+            console.log('Mode Random');
+            
+            hoverRandom()
+        }else {
+            hover()
+            console.log('Mode Color');
+            
+        }
+        })
 }
 
+///
 
 
+
+playMode()

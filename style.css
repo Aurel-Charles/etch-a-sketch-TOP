@@ -36,7 +36,7 @@ h1{
 .square-colored{
     color: black;
     flex: auto;
-    background-color: rgba(12, 34, 84, 100%);
+    background-color: rgb(44, 84, 12);
     border: solid 1px black;
 }
 
@@ -50,4 +50,19 @@ section{
     justify-content: center;
     align-items: center;
     margin-bottom: 5%;
+}
+
+.checkRandom{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.colorpicker{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
 }

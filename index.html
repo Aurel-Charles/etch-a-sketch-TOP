@@ -9,11 +9,15 @@
 </head>
 <body>
     <h1>Etch-a-Sketch</h1>
-    <section>
-        <button id="btnSquarePerSide">Number of Square/Side</button>
+    <section id="parameters">
+        <button id="btnSquarePerSide">New Grid</button>
         <div class="colorpicker">
             <input id="color" type="color">
             <label for="color">Color</label>
+        </div>
+        <div class="checkRandom">
+            <input type="checkbox" name="randomColor" id="checkRandomColor">
+            <label for="checkRandomColor">Random Color</label>
         </div>
     </section>
     <div id="container"></div>
