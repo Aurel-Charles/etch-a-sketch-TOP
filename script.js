@@ -96,6 +96,7 @@ btnSquarePerSide.addEventListener('click', ()=> {
 //// mode 
 
 function playMode() {
+    hover()
     const checkRandomcolor = document.querySelector('#checkRandomColor')
     checkRandomcolor.addEventListener('change', (e)=>  {
         let mode = e.target.checked;
